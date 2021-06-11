@@ -10,7 +10,8 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1000
+//        return 1000
+        return 5
     }
 //    question would be since we are rending 1000, does it show all 1000 and if we scroll down does it keep it or throw it away and recall it.
     // it does a reusing cell item of if we are using it again and dequeue the cell until we need it
@@ -18,6 +19,9 @@ class ViewController: UIViewController, UITableViewDataSource {
 //        let cell = UITableViewCell()
         let cell = tableView.dequeueReusableCell(withIdentifier: "normalCell", for: indexPath)
         cell.textLabel?.text = "This is the cell for \(indexPath.row)"
+        cell.imageView?.image =  UIImage(named: "clock")
+        cell.accessoryType = .disclosureIndicator
+        cell.detailTextLabel?.text = "Some detail text"
         return cell
     }
     
